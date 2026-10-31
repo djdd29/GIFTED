@@ -1,787 +1,345 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>DATE GIFT</title>
 
 <style>
-
 * {
-
   box-sizing: border-box;
-
   margin: 0;
-
   padding: 0;
-
 }
 
 body {
-
-  background: #080808;
-
-  color: white;
-
-  font-family: Arial, sans-serif;
-
   min-height: 100vh;
-
-  overflow-x: hidden;
-
-}
-
-body::before {
-
-  content: "";
-
-  position: fixed;
-
-  width: 500px;
-
-  height: 500px;
-
-  background: #ffffff08;
-
-  filter: blur(100px);
-
-  border-radius: 50%;
-
-  top: -200px;
-
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  pointer-events: none;
-
-}
-
-header {
-
-  height: 75px;
-
+  background: radial-gradient(circle at top, #292929, #090909 65%);
+  color: white;
+  font-family: Arial, sans-serif;
   display: flex;
-
+  justify-content: center;
   align-items: center;
+  padding: 20px;
+}
 
-  justify-content: space-between;
-
-  padding: 0 7%;
-
-  border-bottom: 1px solid #ffffff12;
-
-  position: relative;
-
+.container {
+  width: 100%;
+  max-width: 460px;
+  text-align: center;
+  padding: 35px 24px;
+  border: 1px solid #444;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #171717, #080808);
+  box-shadow: 0 0 45px #000;
 }
 
 .logo {
-
-  font-size: 27px;
-
+  font-size: 30px;
   font-weight: 900;
-
-  letter-spacing: 8px;
-
+  letter-spacing: 5px;
 }
 
-.status {
-
+.logo span {
   color: #aaa;
-
-  font-size: 12px;
-
-  border: 1px solid #333;
-
-  padding: 9px 15px;
-
-  border-radius: 30px;
-
-}
-
-.status span {
-
-  color: #8dffae;
-
-}
-
-main {
-
-  max-width: 850px;
-
-  margin: auto;
-
-  padding: 65px 20px 40px;
-
-  text-align: center;
-
-  position: relative;
-
-}
-
-.tag {
-
-  display: inline-block;
-
-  border: 1px solid #383838;
-
-  padding: 8px 18px;
-
-  border-radius: 30px;
-
-  color: #ccc;
-
-  font-size: 12px;
-
-  letter-spacing: 2px;
-
-  margin-bottom: 25px;
-
-}
-
-h1 {
-
-  font-size: clamp(34px, 7vw, 55px);
-
-  font-weight: 900;
-
-  margin-bottom: 15px;
-
-}
-
-h1 span {
-
-  color: #aaa;
-
 }
 
 .subtitle {
-
   color: #888;
+  font-size: 12px;
+  letter-spacing: 4px;
+  margin-top: 7px;
+}
 
-  font-size: 15px;
+.datetime {
+  margin: 24px auto 0;
+  padding: 11px 12px;
+  border: 1px solid #333;
+  border-radius: 12px;
+  color: #c9c9c9;
+  font-size: 13px;
+  line-height: 1.8;
+  background: #101010;
+}
 
-  line-height: 2;
+h1 {
+  margin-top: 28px;
+  font-size: 28px;
+}
 
+.description {
+  color: #999;
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 1.8;
 }
 
 .gift-area {
-
-  margin: 40px auto 25px;
-
-  width: 100%;
-
-  max-width: 390px;
-
-  height: 300px;
-
+  height: 220px;
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
-  position: relative;
-
-}
-
-.glow {
-
-  position: absolute;
-
-  width: 230px;
-
-  height: 230px;
-
-  background: #ffffff12;
-
-  filter: blur(65px);
-
-  border-radius: 50%;
-
+  margin: 20px 0;
 }
 
 .gift {
-
   position: relative;
-
-  width: 175px;
-
-  height: 150px;
-
-  cursor: pointer;
-
-  animation: float 3s ease-in-out infinite;
-
-  transition: .5s;
-
-  filter: drop-shadow(0 15px 25px #ffffff20);
-
+  width: 145px;
+  height: 125px;
+  animation: float 2s infinite ease-in-out;
 }
 
-.gift:hover {
-
-  transform: scale(1.08);
-
-}
-
-.box-body {
-
+.gift-box {
   position: absolute;
-
-  width: 175px;
-
-  height: 110px;
-
   bottom: 0;
-
-  background: linear-gradient(135deg,#eeeeee,#777,#c7c7c7);
-
-  border-radius: 7px 7px 12px 12px;
-
-  box-shadow: inset 0 -12px 20px #0005;
-
+  width: 145px;
+  height: 95px;
+  background: linear-gradient(135deg, #eee, #777);
+  border-radius: 8px;
+  box-shadow: 0 15px 35px #000;
 }
 
-.box-body::before {
-
+.gift-box::before {
   content: "";
-
   position: absolute;
-
-  width: 28px;
-
+  width: 25px;
   height: 100%;
-
-  background: linear-gradient(90deg,#555,#eee,#888);
-
-  left: 50%;
-
-  transform: translateX(-50%);
-
+  background: linear-gradient(90deg, #555, #fff, #777);
+  left: 60px;
 }
 
-.box-lid {
-
+.gift-lid {
   position: absolute;
-
-  width: 190px;
-
-  height: 37px;
-
-  top: 7px;
-
-  left: -7px;
-
-  background: linear-gradient(135deg,#fff,#888,#ddd);
-
+  top: 20px;
+  left: -8px;
+  width: 161px;
+  height: 28px;
+  background: linear-gradient(135deg, #fff, #888);
   border-radius: 7px;
-
-  box-shadow: 0 5px 10px #0008;
-
   z-index: 2;
-
 }
 
-.box-lid::before {
-
-  content: "";
-
+.ribbon {
   position: absolute;
-
-  width: 28px;
-
-  height: 100%;
-
-  background: linear-gradient(90deg,#555,#fff,#777);
-
-  left: 50%;
-
-  transform: translateX(-50%);
-
-}
-
-.bow {
-
-  position: absolute;
-
-  top: -21px;
-
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  width: 75px;
-
+  top: -12px;
+  left: 55px;
+  width: 35px;
   height: 35px;
-
+  border: 9px solid #ddd;
+  border-radius: 50%;
   z-index: 3;
-
-}
-
-.bow::before,.bow::after {
-
-  content: "";
-
-  position: absolute;
-
-  width: 38px;
-
-  height: 27px;
-
-  border: 8px solid #ddd;
-
-  border-radius: 50% 50% 10% 50%;
-
-}
-
-.bow::before {
-
-  left: 0;
-
-  transform: rotate(25deg);
-
-}
-
-.bow::after {
-
-  right: 0;
-
-  transform: rotate(65deg);
-
 }
 
 @keyframes float {
-
-  0%,100% { transform: translateY(0); }
-
-  50% { transform: translateY(-13px); }
-
-}
-
-.opening .gift {
-
-  animation: shake .5s infinite;
-
-}
-
-@keyframes shake {
-
-  0%,100% { transform: rotate(0); }
-
-  25% { transform: rotate(-7deg); }
-
-  75% { transform: rotate(7deg); }
-
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
 button {
-
+  width: 100%;
+  padding: 16px;
   border: none;
-
-  background: linear-gradient(135deg,#fff,#c5c5c5);
-
-  color: #080808;
-
-  padding: 17px 55px;
-
   border-radius: 12px;
-
-  font-size: 17px;
-
-  font-weight: 900;
-
+  background: linear-gradient(135deg, #fff, #aaa);
+  color: #111;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-
-  transition: .25s;
-
-  box-shadow: 0 5px 30px #ffffff18;
-
+  transition: .3s;
 }
 
 button:hover {
-
-  transform: translateY(-3px);
-
-  box-shadow: 0 8px 35px #ffffff35;
-
+  transform: scale(1.03);
+  box-shadow: 0 0 25px #888;
 }
 
 button:disabled {
-
   opacity: .5;
-
   cursor: not-allowed;
-
   transform: none;
-
-}
-
-.hint {
-
-  color: #666;
-
-  font-size: 12px;
-
-  margin-top: 20px;
-
 }
 
 .result {
-
   display: none;
-
-  margin: 35px auto 0;
-
-  max-width: 440px;
-
-  padding: 30px 20px;
-
-  border: 1px solid #444;
-
-  border-radius: 20px;
-
-  background: linear-gradient(145deg,#191919,#0d0d0d);
-
-  animation: appear .6s ease;
-
-}
-
-@keyframes appear {
-
-  from { opacity: 0; transform: translateY(25px) scale(.95); }
-
-  to { opacity: 1; transform: translateY(0) scale(1); }
-
-}
-
-.result-icon {
-
-  font-size: 60px;
-
-  margin-bottom: 15px;
-
+  margin-top: 22px;
+  padding: 20px;
+  border: 1px solid #555;
+  border-radius: 14px;
+  background: #151515;
 }
 
 .result h2 {
-
-  font-size: 24px;
-
+  font-size: 19px;
   margin-bottom: 12px;
-
 }
 
-.result p {
-
-  color: #aaa;
-
-  line-height: 2;
-
-  font-size: 14px;
-
-}
-
-.result-name {
-
-  color: white;
-
-  font-size: 21px;
-
+.prize {
+  font-size: 19px;
   font-weight: bold;
-
-  margin: 20px 0;
-
+  color: #eee;
+  line-height: 1.8;
 }
 
-footer {
-
-  margin-top: 65px;
-
-  padding: 25px;
-
-  border-top: 1px solid #ffffff12;
-
+.footer {
   color: #555;
-
-  font-size: 12px;
-
-  letter-spacing: 2px;
-
+  font-size: 11px;
+  margin-top: 28px;
 }
 
-@media(max-width:500px) {
-
-  main { padding-top: 45px; }
-
-  .gift-area { height: 260px; }
-
-  header { padding: 0 20px; }
-
+@media (max-width: 400px) {
+  .container {
+    padding: 28px 18px;
+  }
+  h1 {
+    font-size: 24px;
+  }
 }
-
 </style>
-
 </head>
 
 <body>
 
-<header>
+<div class="container">
 
-  <div class="logo">DATE</div>
+  <div class="logo">DATE <span>GIFT</span></div>
+  <div class="subtitle">SPECIAL GIFT EVENT</div>
 
-  <div class="status"><span>●</span> GIFT EVENT</div>
-
-</header>
-
-<main>
-
-  <div class="tag">DATE STORE PRESENTS</div>
-
-  <h1>افتح <span>هديتك</span></h1>
-
-  <p class="subtitle">
-
-    صندوقك ينتظرك! اضغط على زر الاستلام واكتشف جائزتك
-
-    <br>
-
-    حظاً موفقاً للجميع ❤️
-
-  </p>
-
-  <div class="gift-area" id="giftArea">
-
-    <div class="glow"></div>
-
-    <div class="gift" id="gift">
-
-      <div class="bow"></div>
-
-      <div class="box-lid"></div>
-
-      <div class="box-body"></div>
-
-    </div>
-
+  <div class="datetime" id="liveDateTime">
+    جاري تحميل التاريخ والوقت...
   </div>
 
-  <button id="openBtn" onclick="openGift()">
+  <h1>افتح هديتك 🎁</h1>
 
-    🎁 استلام الهدية
+  <p class="description">
+    عندك هدية خاصة بانتظارك
+    اضغط على الزر وافتح صندوقك واكتشف جائزتك
+  </p>
 
+  <div class="gift-area">
+    <div class="gift">
+      <div class="gift-lid"></div>
+      <div class="ribbon"></div>
+      <div class="gift-box"></div>
+    </div>
+  </div>
+
+  <button id="openButton" onclick="openGift()">
+    استلام الهدية
   </button>
 
-  <p class="hint" id="hint">
-
-    اضغط مرة واحدة لفتح صندوق الهدايا
-
-  </p>
-
   <div class="result" id="result">
-
-    <div class="result-icon" id="resultIcon">🎉</div>
-
-    <h2 id="resultTitle">مبروك!</h2>
-
-    <p>لقد حصلت على جائزتك من DATE</p>
-
-    <div class="result-name" id="resultName"></div>
-
-    <p id="resultMessage">تواصل مع إدارة DATE لاستلام جائزتك</p>
-
+    <h2>🎉 مبروك عليك!</h2>
+    <div class="prize" id="prize"></div>
   </div>
 
-</main>
+  <div class="footer">
+    DATE GIFT © 2026
+  </div>
 
-<footer>
-
-  DATE STORE • THANK YOU FOR PARTICIPATING
-
-</footer>
+</div>
 
 <script>
+// تحديث التاريخ والوقت بتوقيت السعودية
+function updateDateTime() {
+  const now = new Date();
 
-// الجوائز ونسب الفوز
+  const date = now.toLocaleDateString("ar-SA", {
+    timeZone: "Asia/Riyadh",
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
 
-// مجموع النسب = 100%
+  const time = now.toLocaleTimeString("ar-SA", {
+    timeZone: "Asia/Riyadh",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true
+  });
 
+  document.getElementById("liveDateTime").textContent =
+    date + " | " + time;
+}
+
+updateDateTime();
+setInterval(updateDateTime, 1000);
+
+
+// الجوائز ونسب السحب
 const prizes = [
-
-  {name:"50M ProBot Credits", chance:30, icon:"💰"},
-
-  {name:"2 Discord Boosts", chance:3.1, icon:"🚀"},
-
-  {name:"Nitro Promo", chance:5, icon:"💎"},
-
-  {name:"حساب فورت نايت من 1 إلى 20 سكن", chance:3, icon:"🎮"},
-
-  {name:"300M ProBot Credits", chance:0.90, icon:"💰"},
-
-  {name:"حساب فورت نايت من 20 إلى 50 سكن", chance:1, icon:"🎮"},
-
-  {name:"50 Robux", chance:1, icon:"🟣"},
-
-  {name:"100M ProBot Credits", chance:5, icon:"💰"},
-
-  {name:"10 Robux", chance:3, icon:"🟣"},
-
-  {name:"20 Robux", chance:2, icon:"🟣"},
-
-  {name:"حساب ديسكورد عشوائي", chance:2.2, icon:"💬"},
-
-  {name:"4 Discord Boosts", chance:2.88, icon:"🚀"},
-
-  {name:"رتبة مميزة", chance:4, icon:"👑"},
-
-  {name:"رتبة بصلاحيات مميزة", chance:5, icon:"🛡️"},
-
-  {name:"30M ProBot Credits", chance:19.84, icon:"💰"},
-
-  {name:"حظ أوفر", chance:12.08, icon:"🍀"}
-
+  { name: "💰 50M ProBot Credits", chance: 30 },
+  { name: "🚀 2 Discord Boosts", chance: 3.1 },
+  { name: "💎 Nitro Promo", chance: 5 },
+  { name: "🎮 Fortnite account 1–20 skins", chance: 3 },
+  { name: "💰 300M ProBot Credits", chance: 0.90 },
+  { name: "🎮 Fortnite account 20–50 skins", chance: 1 },
+  { name: "🟣 50 Robux", chance: 1 },
+  { name: "💰 100M ProBot Credits", chance: 5 },
+  { name: "🟣 10 Robux", chance: 3 },
+  { name: "🟣 20 Robux", chance: 2 },
+  { name: "💬 Random Discord account", chance: 2.2 },
+  { name: "🚀 4 Discord Boosts", chance: 2.88 },
+  { name: "👑 Special role", chance: 4 },
+  { name: "🛡️ Role with special permissions", chance: 5 },
+  { name: "💰 30M ProBot Credits", chance: 19.84 },
+  { name: "🍀 Better luck next time", chance: 12.08 }
 ];
 
-// لا تضف Nitro Gift أو 14 Boost إلى مصفوفة السحب
-
 function drawPrize() {
-
   const random = Math.random() * 100;
-
   let total = 0;
 
   for (const prize of prizes) {
-
     total += prize.chance;
 
     if (random < total) {
-
-      return prize;
-
+      return prize.name;
     }
-
   }
 
-  return prizes[prizes.length - 1];
-
-}
-
-function openGift() {
-
-  const alreadyOpened = localStorage.getItem("date_gift_opened");
-
-  if (alreadyOpened) {
-
-    showAlreadyOpened();
-
-    return;
-
-  }
-
-  const button = document.getElementById("openBtn");
-
-  const area = document.getElementById("giftArea");
-
-  button.disabled = true;
-
-  button.textContent = "جاري فتح الهدية...";
-
-  area.classList.add("opening");
-
-  setTimeout(() => {
-
-    const prize = drawPrize();
-
-    localStorage.setItem("date_gift_opened", "true");
-
-    localStorage.setItem("date_gift_result", JSON.stringify(prize));
-
-    area.classList.remove("opening");
-
-    area.style.display = "none";
-
-    button.style.display = "none";
-
-    document.getElementById("hint").style.display = "none";
-
-    document.getElementById("resultIcon").textContent = prize.icon;
-
-    if (prize.name === "حظ أوفر") {
-
-      document.getElementById("resultTitle").textContent = "حظ أوفر ❤️";
-
-      document.getElementById("resultMessage").textContent =
-
-        "لا تحزن! نتمنى لك حظاً أفضل في المرة القادمة";
-
-    } else {
-
-      document.getElementById("resultTitle").textContent = "مبروك! 🎉";
-
-      document.getElementById("resultMessage").textContent =
-
-        "تواصل مع إدارة DATE لاستلام جائزتك";
-
-    }
-
-    document.getElementById("resultName").textContent = prize.name;
-
-    document.getElementById("result").style.display = "block";
-
-  }, 2200);
-
+  return prizes[prizes.length - 1].name;
 }
 
 function showAlreadyOpened() {
+  const savedPrize = localStorage.getItem("date_gift_prize");
 
-  const saved = localStorage.getItem("date_gift_result");
-
-  const prize = saved ? JSON.parse(saved) : null;
-
-  document.getElementById("giftArea").style.display = "none";
-
-  document.getElementById("openBtn").style.display = "none";
-
-  document.getElementById("hint").style.display = "none";
-
-  if (prize) {
-
-    document.getElementById("resultIcon").textContent = prize.icon;
-
-    document.getElementById("resultTitle").textContent =
-
-      prize.name === "حظ أوفر" ? "حظ أوفر ❤️" : "هذه جائزتك السابقة";
-
-    document.getElementById("resultName").textContent = prize.name;
-
-    document.getElementById("resultMessage").textContent =
-
-      "لقد فتحت هديتك مسبقاً";
+  if (localStorage.getItem("date_gift_opened") === "true") {
+    document.getElementById("openButton").disabled = true;
+    document.getElementById("openButton").textContent = "تم استلام الهدية";
 
     document.getElementById("result").style.display = "block";
-
+    document.getElementById("prize").textContent =
+      savedPrize || "تم استلام هديتك مسبقاً";
   }
-
 }
 
-// منع إعادة الفتح في نفس المتصفح
-
-window.addEventListener("load", () => {
-
-  if (localStorage.getItem("date_gift_opened")) {
-
+function openGift() {
+  if (localStorage.getItem("date_gift_opened") === "true") {
     showAlreadyOpened();
-
+    return;
   }
 
-});
+  const button = document.getElementById("openButton");
+  button.disabled = true;
+  button.textContent = "جاري فتح الهدية... 🎁";
 
+  setTimeout(() => {
+    const selectedPrize = drawPrize();
+
+    localStorage.setItem("date_gift_opened", "true");
+    localStorage.setItem("date_gift_prize", selectedPrize);
+
+    document.getElementById("result").style.display = "block";
+    document.getElementById("prize").textContent = selectedPrize;
+
+    button.textContent = "تم استلام الهدية";
+  }, 2200);
+}
+
+showAlreadyOpened();
 </script>
 
 </body>
-
 </html>
