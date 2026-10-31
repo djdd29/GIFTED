@@ -190,6 +190,7 @@ button:disabled {
   .container {
     padding: 28px 18px;
   }
+
   h1 {
     font-size: 24px;
   }
@@ -239,7 +240,7 @@ button:disabled {
 </div>
 
 <script>
-// تحديث التاريخ والوقت بتوقيت السعودية
+// التاريخ والوقت بتوقيت السعودية
 function updateDateTime() {
   const now = new Date();
 
@@ -267,26 +268,27 @@ updateDateTime();
 setInterval(updateDateTime, 1000);
 
 
-// الجوائز ونسب السحب
+// الجوائز والنسب الجديدة
 const prizes = [
   { name: "💰 50M ProBot Credits", chance: 30 },
-  { name: "🚀 2 Discord Boosts", chance: 3.1 },
-  { name: "💎 Nitro Promo", chance: 5 },
-  { name: "🎮 Fortnite account 1–20 skins", chance: 3 },
-  { name: "💰 300M ProBot Credits", chance: 0.90 },
-  { name: "🎮 Fortnite account 20–50 skins", chance: 1 },
+  { name: "🚀 2 Discord Boosts", chance: 0.5 },
+  { name: "💎 Nitro Promo", chance: 1 },
+  { name: "🎮 حساب فورت نايت من 1 إلى 20 سكن", chance: 3 },
+  { name: "💰 300M ProBot Credits", chance: 0.9 },
   { name: "🟣 50 Robux", chance: 1 },
   { name: "💰 100M ProBot Credits", chance: 5 },
   { name: "🟣 10 Robux", chance: 3 },
   { name: "🟣 20 Robux", chance: 2 },
-  { name: "💬 Random Discord account", chance: 2.2 },
-  { name: "🚀 4 Discord Boosts", chance: 2.88 },
-  { name: "👑 Special role", chance: 4 },
-  { name: "🛡️ Role with special permissions", chance: 5 },
-  { name: "💰 30M ProBot Credits", chance: 19.84 },
-  { name: "🍀 Better luck next time", chance: 12.08 }
+  { name: "💬 حساب ديسكورد عشوائي", chance: 0.2 },
+  { name: "🚀 4 Discord Boosts", chance: 0.0000001 },
+  { name: "👑 رتبة خاصة", chance: 4 },
+  { name: "🛡️ رتبة بصلاحيات مميزة", chance: 5 },
+  { name: "💰 30M ProBot Credits", chance: 32.3199999 },
+  { name: "🍀 حظ أوفر المرة القادمة", chance: 12.08 }
 ];
 
+
+// اختيار الجائزة
 function drawPrize() {
   const random = Math.random() * 100;
   let total = 0;
@@ -302,12 +304,15 @@ function drawPrize() {
   return prizes[prizes.length - 1].name;
 }
 
+
+// منع فتح الهدية أكثر من مرة على نفس المتصفح
 function showAlreadyOpened() {
   const savedPrize = localStorage.getItem("date_gift_prize");
 
   if (localStorage.getItem("date_gift_opened") === "true") {
     document.getElementById("openButton").disabled = true;
-    document.getElementById("openButton").textContent = "تم استلام الهدية";
+    document.getElementById("openButton").textContent =
+      "تم استلام الهدية";
 
     document.getElementById("result").style.display = "block";
     document.getElementById("prize").textContent =
@@ -315,6 +320,8 @@ function showAlreadyOpened() {
   }
 }
 
+
+// فتح الهدية
 function openGift() {
   if (localStorage.getItem("date_gift_opened") === "true") {
     showAlreadyOpened();
@@ -322,6 +329,7 @@ function openGift() {
   }
 
   const button = document.getElementById("openButton");
+
   button.disabled = true;
   button.textContent = "جاري فتح الهدية... 🎁";
 
